@@ -1,0 +1,131 @@
+
+//intersection of two sorted arrays
+public class Main
+{
+	public static void main(String[] args) {
+		int a1[]={1,2,2,2,3,4,4,5,6};
+		int a2[]={1,1,2,2,2,3,3,4,5};
+		int i=0,j=0;
+		//ArrayList<Integer> a1=new ArrayList<>();
+		while(i<a1.length && j<a2.length){
+		    if(a1[i]==a2[j]){
+		        System.out.print(a1[i]+" ");
+		        i++;
+		        j++;
+		    }
+		    else if(a1[i]>a2[j]){
+		        j++;
+		    }
+		    else{
+		        i++;
+		    }
+		}
+	}
+}
+
+
+//maximum path sum of two sorted arrays
+int p[]={2,3,7,10,12,15,30,34};
+		int q[]={1,5,7,8,10,15,16,19};
+		int i=0,j=0;
+		int sum1=0,sum2=0,tsum=0;
+		while(i<p.length && j<q.length){
+		    if(p[i]==q[j]){
+		        tsum=tsum+(int)Math.max(sum1,sum2)+p[i];
+		        sum1=0;
+		        sum2=0;
+		        i++;
+		        j++;
+		    }
+		    else if(p[i]>q[j]){
+		        sum2=sum2+p[j];
+		        j++;
+		    }
+		    else{
+		        sum1=sum1+p[i];
+		        i++;
+		    }
+		}
+		while(i<p.length)
+		{
+		  sum1=sum1+p[i];
+		  i++;
+	    }
+	    while(j<q.length)
+		{
+		    sum2=sum2+q[j];
+		    j++;
+		}
+		tsum=tsum+(int)Math.max(sum1,sum2);
+		System.out.println(tsum);
+
+//number of substrings
+class Solution {
+    public int countSubstrings(String s) {
+        int ans=0;
+        for(int i=0;i<s.length();i++)
+        {
+            ans=ans+grow(s,i,i,0);
+            ans=ans+grow(s,i,i+1,0);
+        }
+        return ans;
+    }
+    public static int grow(String s,int left,int right,int count){
+        while(left>=0 && right<s.length()){
+            if(s.charAt(left)==s.charAt(right)){
+                count++;
+                left--;
+                right++;
+            }
+            else{
+                break;
+            }
+        }
+        return count;
+    }
+}
+
+
+//maximum subarray of size k
+class Solution{
+    static long maximumSumSubarray(int K, ArrayList<Integer> Arr,int N){
+        // code here
+        long sum=0;
+        int i;
+        for(i=0;i<K;i++){
+            sum=sum+Arr.get(i);
+        }
+        long max=sum;
+        i=0;
+        for(int j=K;j<N;j++)   
+        {
+            sum=sum-Arr.get(i);
+            sum=sum+Arr.get(j);
+            max=Math.max(max,sum);
+            i++;
+        }
+        return max;
+    }
+}
+
+//find an element in 2d matrix in O(n) time
+
+
+//subarray sum eqauls k
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int sum,count=0;
+        int l=nums.length;
+        for(int i=0;i<l;i++)
+        {
+            sum=0;
+            for(int j=i;j<l;j++)
+            {
+                sum=sum+nums[j];
+                if(sum==k)
+                count++;
+            }
+        }
+        return count;
+    }
+}

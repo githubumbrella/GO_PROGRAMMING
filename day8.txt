@@ -1,0 +1,135 @@
+// Day 8 22-02-2024
+// Program to define a function
+/** func greet(){
+     fmt.Println("Good Morning")
+	 }
+	
+func main(){
+      // function call
+      greet()
+} **/
+
+// Function to add two numbers
+/** func addNumbers(){
+     n1:=12
+	 n2:=8
+	 
+	 sum:=n1+n2
+	 fmt.Println("Sum : ",sum)
+}
+
+func main(){
+     addNumbers()
+ } **/
+ 
+ // Program to illustrate function parameters
+/** func addNumbers(n1 int,n2 int){
+    sum:=n1+n2
+	fmt.Println("Sum : ",sum)
+	}
+func main(){
+	 var x,y int
+	 fmt.Println("Enter two numbers : ")
+	 fmt.Scan(&x,&y)
+	 // pass parameters in function call
+     addNumbers(x,y)
+} **/
+
+// Return Value from Go function
+/** func addNumbers(n1 int,n2 int) int{
+     sum:=n1+n2
+	 return sum
+	 
+	 // fmt.Println("After return statement") // will give error 'missing return'. return must be the last statement of the function except recursive function. 
+}
+
+func main(){
+     var x,y int
+	 fmt.Println("Enter two numbers : ")
+	 fmt.Scan(&x,&y)
+     result:=addNumbers(x,y)
+	 fmt.Println("Sum : ",result)
+	 fmt.Println("After return statement")
+} **/
+
+// Program to return multiple values from function
+/** func calculate(n1 int,n2 int)(int,int){
+     sum:=n1+n2
+	 difference:=n1-n2
+	 return sum,difference
+}
+func main(){
+     var x,y int
+	 fmt.Println("Enter two numbers : ")
+	 fmt.Scan(&x,&y)
+     sum,difference:=calculate(x,y)
+	 fmt.Println("Sum: ",sum,"Difference: ",difference)
+	 } **/
+
+// Program to illustrate code reusability in function	 
+/** func getSquare(num int){
+     square:=num*num
+	 fmt.Printf("Square of %d is %d\n",num,square)
+	}
+	
+func main(){
+     getSquare(3)
+	 getSquare(5)
+	 getSquare(10)
+} **/
+
+// Program to illustrate local variables
+/** func addNumbers(){
+     // local variables
+	 var sum int
+	 sum=5+9
+	 }
+func main(){
+     var sum int=0
+     addNumbers()
+	 // cannot access sum out of its local scope
+	 fmt.Println("Sum is",sum)
+	 } **/
+	 
+// program to illustrate global variable
+/** var sum int
+func addNumbers(){
+     // local variable
+	 sum=9+5
+}
+
+func main(){
+    // can access sum
+	addNumbers()
+	fmt.Println("Sum is ",sum)
+} **/
+
+// Recursion in golang
+/** func countDown(number int){
+     // display the number
+     fmt.Println(number)
+	 
+	 // recursive call by decreasing number
+	 countDown(number-1)
+}
+func main(){
+     fmt.Println("Countdown Starts.")
+	 countDown(3)
+ } **/
+ 
+// Recursive function with conditional statement
+func countDown(number int){
+     if number>0{
+	     fmt.Println(number)
+	     //recursive call
+		 countDown(number-1)
+	} else {
+	    // ends the recursive function 
+		fmt.Println("Countdown Stops")
+	}
+}
+
+func main(){
+     fmt.Println("Countdown Starts")
+	 countDown(3)
+}

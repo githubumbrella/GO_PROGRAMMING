@@ -1,0 +1,18 @@
+
+package main
+
+import "fmt"
+
+// function prototype
+func main() {
+   var n1 int
+   res:=fact(n1)
+   fmt.Println("The factorial of given number is",res)
+}
+
+func fact(n int) int {
+   if(n>=1)
+   return n*(res-1)
+   else
+   return 1;
+}
